@@ -10,24 +10,24 @@ class TicketEntry extends Form\Form
     {
         $this->add([
             'type' => Form\Element\Csrf::class,
-            'name' => 'fdh456eh56ujzum45zkuik45zhrh'
+            'name' => 'fdh456eh56ujzum45zkuik45zhrh',
         ]);
 
         $this->add([
             'name' => 'memo',
             'type' => Form\Element\Textarea::class,
             'options' => [
-                'label' => 'Memo',
+                'label' => 'Text:',
             ],
             'attributes' => [
-                'placeholder' => 'Memo',
+                'placeholder' => 'hier schreiben...',
                 'class' => 'form-control',
             ],
         ]);
 
         $submitElement = new Form\Element\Button('submit');
         $submitElement
-            ->setLabel('Submit')
+            ->setLabel('Absenden')
             ->setAttributes([
                 'class' => 'btn btn-primary',
                 'type' => 'submit',

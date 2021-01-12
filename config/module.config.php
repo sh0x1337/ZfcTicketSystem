@@ -12,7 +12,7 @@ return [
             'zfc-ticketsystem' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route' => '/panel/ticket[-:action[-:id]].html',
+                    'route' => '/lisa/ticket[-:action[-:id]].html',
                     'constraints' => [
                         'action' => '[a-zA-Z-]+',
                         'id' => '[0-9]+',
@@ -102,7 +102,7 @@ return [
         ],
     ],
     'zfc-ticket-system' => [
-        'auth_service' => 'user_auth_service',
+        'auth_service' => 'Laminas\Authentication\AuthenticationService',
         'entity' => [
             'ticket_category' => Entity\TicketCategory::class,
             'ticket_entry' => Entity\TicketEntry::class,

@@ -9,7 +9,9 @@ $form->setAttribute('method', 'post');
 <?php foreach ($form as $element): ?>
 	<div class="form-group">
 		<?php if (!$element instanceof Zend\Form\Element\Button): ?>
+            <?php if (!$element instanceof Zend\Form\Element\Csrf): ?>
 			<label><?php echo $this->formLabel($element) ?></label>
+            <?php endif ?>
 		<?php endif ?>
 		<?php if ($element instanceof Zend\Form\Element\Button): ?>
             <?php echo $this->formButton($element) ?>

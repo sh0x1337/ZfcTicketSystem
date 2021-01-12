@@ -33,16 +33,21 @@ class TicketSystem extends Form\Form
     {
         $this->add([
             'type' => Form\Element\Csrf::class,
-            'name' => 'fdh456eh56ujzum45zkuik45zhrh'
+            'name' => 'fdh456eh56ujzum45zkuik45zhrh',
+            'options' => [
+                'csrf_options' => [
+                    'timeout' => 600,
+                ],
+            ],
         ]);
 
         $this->add([
             'name' => 'subject',
             'options' => [
-                'label' => 'Subject',
+                'label' => 'Betreff:',
             ],
             'attributes' => [
-                'placeholder' => 'Subject',
+                'placeholder' => 'Betreff',
                 'class' => 'form-control',
                 'type' => 'text'
             ],
@@ -54,8 +59,8 @@ class TicketSystem extends Form\Form
                 'object_manager' => $this->entityManager,
                 'target_class' => $this->entityOptions->getTicketCategory(),
                 'property' => 'subject',
-                'label' => 'Category',
-                'empty_option' => '-- select --',
+                'label' => 'Kategorie:',
+                'empty_option' => 'auswählen',
                 'is_method' => true,
                 'find_method' => [
                     'name' => 'getActiveCategory',
@@ -69,17 +74,17 @@ class TicketSystem extends Form\Form
             'name' => 'memo',
             'type' => Form\Element\Textarea::class,
             'options' => [
-                'label' => 'Memo',
+                'label' => 'Beschreibung:',
             ],
             'attributes' => [
-                'placeholder' => 'Memo',
+                'placeholder' => 'hier können Sie uns Ihr Anliegen schildern.',
                 'class' => 'form-control',
             ],
         ]);
 
         $submitElement = new Form\Element\Button('submit');
         $submitElement
-            ->setLabel('Submit')
+            ->setLabel('Absenden')
             ->setAttributes([
                 'class' => 'btn btn-primary',
                 'type' => 'submit',
